@@ -1,0 +1,41 @@
+﻿@model ETrade.UI.Models.ViewModel.CategoriesModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>@Model.Head</h1>
+
+<h4>Categories</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                 
+                <input asp-for="Categories.CategoryName" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                
+                <input type="hidden" value="@Model.Categories.CategoryId"  name="Categories.CategoryId"  class="form-control" />
+                
+            </div>
+             
+           
+            <div class="form-group">
+                <input type="submit" value="@Model.Text" class="@Model.Class" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

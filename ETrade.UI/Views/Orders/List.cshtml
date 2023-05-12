@@ -1,0 +1,20 @@
+﻿@model List<ETrade.Ent.Orders>
+
+<table class="table">
+      
+    <tr>
+        <th>Id</th>
+        <th>OrderDate</th>
+        <th></th>
+        <th><a href="/Orders/New">New Order</a></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.OrderId</td>
+            <td>@item.CreatedDate</td>
+            <td><a href="/Orders/Update/@item.OrderId">Update</a></td>
+            <td><a href="/Orders/Cancel/@item.OrderId">Cancel</a></td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,69 @@
+﻿@model ETrade.UI.Models.ViewModel.FoodsModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>@Model.Head</h1>
+
+ 
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <input type="text" value="@Model.Foods.FoodId" name="Foods.FoodId" class="form-control" />
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Ad</label>
+                <input asp-for="Foods.FoodName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Açıklama</label>
+                <input asp-for="Foods.Description" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Resim</label>
+                <input   asp-for="Foods.Img" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Kategori</label>
+                <select name="Foods.CategoryId">
+                    @foreach (var item in Model.Cats)
+                    {
+                        if (item.Id == Model.Foods.CategoryId)
+                        {
+                             <option selected class="form-control" value="@item.Id">@item.CategoryName</option>
+                        }
+                        else
+                        {
+                            <option  class="form-control" value="@item.Id">@item.CategoryName</option>
+                        }
+                       
+                    }
+                    
+                </select>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="@Model.Text" class="@Model.Class" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn" asp-action="List">İptal</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

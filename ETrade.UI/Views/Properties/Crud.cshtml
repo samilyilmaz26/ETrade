@@ -1,0 +1,57 @@
+﻿@model ETrade.UI.Models.ViewModel.PropertiesModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>@Model.Head</h1>
+
+ 
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Ad</label>
+                <input asp-for="Properties.PropertyName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Fiyat</label>
+                <input asp-for="Properties.UnitPrice" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Yemek</label>
+                <select name="Properties.FoodId">
+                    @foreach (var item in Model.FoodDTOs)
+                    {
+                        <option class="form-control" value="@item.Id">@item.Name</option>
+                    }
+
+                </select>
+            </div>
+            <div class="form-group">
+
+                <input type="hidden" value="@Model.Properties.PropertyId" name="Categories.CategoryId" class="form-control" />
+
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="@Model.Text" class="@Model.Class" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
