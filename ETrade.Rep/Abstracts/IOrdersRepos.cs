@@ -10,6 +10,6 @@ namespace ETrade.Rep.Abstracts
 {
 	public interface IOrdersRepos : IBaseRepository<Orders>
 	{
-		List<Orders> GetOrders(Guid Id);
+		List<Orders> GetOrders(Guid Id);//
 	}
 }
