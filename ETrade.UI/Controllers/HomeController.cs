@@ -19,13 +19,7 @@ namespace ETrade.UI.Controllers
         }
 		public IActionResult Index()
 		{
-
-				//Session.SessionHelper.LoginUser   = SessionHelper.GetObjectFromJson<Users>(HttpContext.Session, "user");
-			//Session.SessionHelper.LoginUser = user;
-			//if (Session.SessionHelper.LoginUser.isAdmin == true)
-			//{
-			//	return RedirectToAction("Admin", "Admin");
-			//}
+ 
             return View();
 		}
 

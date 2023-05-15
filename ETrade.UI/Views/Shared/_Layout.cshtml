@@ -1,5 +1,4 @@
-﻿
-@using ETrade.UI.Session
+﻿@using ETrade.UI.Session
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,25 +27,30 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="List">Orders</a>
                         </li>
 
-                      
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Register">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Admin">Admin</a>
                         </li>
-                        @if (Data.LoginUser.UserName != "")
+                        @if (string.IsNullOrEmpty(Data.LoginUser.UserName))
                         {
-                            <li>
-                                <p>@Data.LoginUser.UserName</p>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Register">Register</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a>
+                            </li>
+
                         }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                            </li>
+                            <li>
+                                <p>  @Data.LoginUser.UserName</p>
+                            </li>
+
+                        }
+
                     </ul>
                 </div>
             </div>

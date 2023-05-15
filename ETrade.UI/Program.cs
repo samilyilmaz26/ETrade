@@ -24,6 +24,7 @@ builder.Services.AddScoped<CategoriesModel>();
 builder.Services.AddScoped<FoodsModel>(); 
 builder.Services.AddScoped<PropertiesModel>();
 builder.Services.AddScoped<Users>();
+builder.Services.AddScoped<Orders>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
